@@ -12,7 +12,7 @@
 
 		vm.model = {
 
-			phrase: 'Tu frase o palabra no inclusiva y poco moderna aquí'
+			phrase: ''
 
 		};
 
