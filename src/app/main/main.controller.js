@@ -55,7 +55,7 @@
 
 				var regExp = /[aeiouáéíóúü]/gi;
 
-				var result = {
+				result = {
 
 					totalLetters: str.length,
 
