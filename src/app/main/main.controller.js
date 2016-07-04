@@ -57,7 +57,7 @@
 
 				result = {
 
-					totalLetters: str.length,
+					totalLetters: str.replace(/ /g, '').length,
 
 					totalNoInclusive: str.match(regExp).length,
 
