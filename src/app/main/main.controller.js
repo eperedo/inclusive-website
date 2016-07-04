@@ -23,13 +23,13 @@
 
 		function initialize () {
 
-			vm.inclusivePhrase = makeLanguageInclusive(vm.model.phrase);
+			vm.inclusiveResult = makeLanguageInclusive(vm.model.phrase);
 
 		}
 
 		function makeInclusive () {
 
-			vm.inclusivePhrase = makeLanguageInclusive(vm.model.phrase);
+			vm.inclusiveResult = makeLanguageInclusive(vm.model.phrase);
 
 		}
 
@@ -49,7 +49,27 @@
 
 		function makeLanguageInclusive(str) {
 
-			return str.replace(/[aeiouáéíóúü]/gi, 'x');
+			var result = {};
+
+			if (str.length > 0) {
+
+				var regExp = /[aeiouáéíóúü]/gi;
+
+				var result = {
+
+					totalLetters: str.length,
+
+					totalNoInclusive: str.match(regExp).length,
+
+					inclusivePhrase: str.replace(regExp, 'x')
+
+				};
+
+				result.unfairPhrase = (result.totalNoInclusive / result.totalLetters) * 100;
+
+			}
+
+			return result;
 
 		}
 

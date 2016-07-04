@@ -43,24 +43,33 @@
           </md-input-container>
         </form>
 
-        <section data-ng-if="vm.inclusivePhrase">
+        <section data-ng-if="vm.inclusiveResult.inclusivePhrase" style="text-align:center">
           <p class="md-title">
             <strong>En un mundo moderno e inclusivo tu frase se debe escribir así</strong>
           </p>
 
           <p class="md-headline">
             <span id="inclusive-phrase">
-              {{vm.inclusivePhrase}}
+              {{vm.inclusiveResult.inclusivePhrase}}
             </span>
           </p>
-          <p style="text-align:center">
+            <p>
+              Tu frase tiene <strong>{{vm.inclusiveResult.totalLetters}}</strong> palabras, de las cuales
+              <strong>{{vm.inclusiveResult.totalNoInclusive}} no son inclusivas ni modernas.</strong>
+            </p>
+            <p>
+              Eso indica un <strong>{{vm.inclusiveResult.unfairPhrase | number: 2}}% de poca inclusión y modernismo.</strong>
+            </p>
+            <p>
+              Cambia eso ahora mismo con tan solo hacer click en el siguiente botón. <strong>¡Hagamos el
+              lenguaje inclusivo y moderno otra vez!</strong>
+            </p>
             <md-button id="btn-inclusive"  md-no-ink class="md-primary"
               ngclipboard data-clipboard-text data-clipboard-action="copy"
               data-clipboard-target="#inclusive-phrase"
               ngclipboard-success="vm.inclusiveCopySuccess(e);">
               Copiar Frase Inclusiva
             </md-button>
-          </p>
         </section>
 
       </section>
